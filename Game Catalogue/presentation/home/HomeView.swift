@@ -10,6 +10,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewModelImpl = HomeViewModelImpl()
+    @State var showingDetail = false
     
     var body: some View {
         NavigationView {
@@ -26,8 +27,12 @@ struct HomeView: View {
             }.navigationBarTitle(
                 Text("Video Games")
             ).navigationBarItems(trailing:
-                HStack {
+                Button(action: {
+                    self.showingDetail.toggle()
+                }) {
                     Image(systemName: "magnifyingglass")
+                }.sheet(isPresented: $showingDetail) {
+                    SearchView()
                 }
             ).onAppear {
                 self.viewModel.getGames(query: "")

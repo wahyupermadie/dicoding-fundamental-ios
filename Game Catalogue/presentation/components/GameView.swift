@@ -24,7 +24,7 @@ struct GameView: View {
                     .fontWeight(.bold)
                     .font(.system(size: 24))
                 
-                Text("Action")
+                Text(game.getGenres())
                     .foregroundColor(.gray)
             }
         }.frame(minWidth: 0,

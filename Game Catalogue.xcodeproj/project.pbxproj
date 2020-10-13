@@ -25,6 +25,9 @@
 		89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCC925344FDE00BFD1A3 /* GameService.swift */; };
 		89C6FCCC2535581300BFD1A3 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */; };
 		89C6FCD125355AB200BFD1A3 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD025355AB200BFD1A3 /* ImageView.swift */; };
+		89C6FCD425356CB500BFD1A3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD325356CB500BFD1A3 /* SearchView.swift */; };
+		89C6FCD62535736200BFD1A3 /* EntityExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD52535736200BFD1A3 /* EntityExt.swift */; };
+		89C6FCD82535861400BFD1A3 /* ColorExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD72535861400BFD1A3 /* ColorExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		89C6FCC925344FDE00BFD1A3 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
 		89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
 		89C6FCD025355AB200BFD1A3 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		89C6FCD325356CB500BFD1A3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		89C6FCD52535736200BFD1A3 /* EntityExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityExt.swift; sourceTree = "<group>"; };
+		89C6FCD72535861400BFD1A3 /* ColorExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		8961D29425337860008B90A4 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				89C6FCD225356CA600BFD1A3 /* search */,
 				89C6FCCD25355A7700BFD1A3 /* components */,
 				8961D29F2533F761008B90A4 /* profil */,
 				8961D29E2533F755008B90A4 /* fav */,
@@ -118,7 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				89C6FCC825344F3C00BFD1A3 /* service */,
-				89C6FCC725344F3300BFD1A3 /* model */,
+				89C6FCC725344F3300BFD1A3 /* entity */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -127,6 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				89C6FCC325344CBF00BFD1A3 /* Helper.swift */,
+				89C6FCD52535736200BFD1A3 /* EntityExt.swift */,
+				89C6FCD72535861400BFD1A3 /* ColorExt.swift */,
 			);
 			path = external;
 			sourceTree = "<group>";
@@ -156,12 +165,12 @@
 			path = profil;
 			sourceTree = "<group>";
 		};
-		89C6FCC725344F3300BFD1A3 /* model */ = {
+		89C6FCC725344F3300BFD1A3 /* entity */ = {
 			isa = PBXGroup;
 			children = (
 				89C6FCC525344E4E00BFD1A3 /* Games.swift */,
 			);
-			path = model;
+			path = entity;
 			sourceTree = "<group>";
 		};
 		89C6FCC825344F3C00BFD1A3 /* service */ = {
@@ -181,6 +190,14 @@
 				89C6FCD025355AB200BFD1A3 /* ImageView.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		89C6FCD225356CA600BFD1A3 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				89C6FCD325356CB500BFD1A3 /* SearchView.swift */,
+			);
+			path = search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C6FCD125355AB200BFD1A3 /* ImageView.swift in Sources */,
+				89C6FCD82535861400BFD1A3 /* ColorExt.swift in Sources */,
 				89C6FCCC2535581300BFD1A3 /* ImageLoaderService.swift in Sources */,
+				89C6FCD62535736200BFD1A3 /* EntityExt.swift in Sources */,
 				89C6FCC425344CBF00BFD1A3 /* Helper.swift in Sources */,
 				8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */,
 				89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */,
@@ -266,6 +285,7 @@
 				8961D2822533684F008B90A4 /* ContentView.swift in Sources */,
 				8961D29825337891008B90A4 /* HomeView.swift in Sources */,
 				8961D29A253378C1008B90A4 /* FavoriteView.swift in Sources */,
+				89C6FCD425356CB500BFD1A3 /* SearchView.swift in Sources */,
 				8961D2A22533F789008B90A4 /* GameView.swift in Sources */,
 				89C6FCC02534462B00BFD1A3 /* ActivityIndicatorView.swift in Sources */,
 				8961D27D2533684F008B90A4 /* SceneDelegate.swift in Sources */,
