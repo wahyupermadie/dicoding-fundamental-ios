@@ -10,27 +10,10 @@ import Foundation
 
 // MARK: - Games
 struct GameResponse: Codable {
-    let count: Int
-    let next: String
-    let previous: JSONNull?
-    let results: [Games]?
-    let seoTitle, seoDescription, seoKeywords, seoH1: String
-    let noindex, nofollow: Bool
-    let gamesDescription: String
-    let filters: Filters
-    let nofollowCollections: [String]
-
-    enum CodingKeys: String, CodingKey {
-        case count, next, previous, results
-        case seoTitle = "seo_title"
-        case seoDescription = "seo_description"
-        case seoKeywords = "seo_keywords"
-        case seoH1 = "seo_h1"
-        case noindex, nofollow
-        case gamesDescription = "description"
-        case filters
-        case nofollowCollections = "nofollow_collections"
-    }
+    var count: Int
+    var next: String?
+    var previous: String?
+    var results: [Games]?
 }
 
 // MARK: - Filters
@@ -55,7 +38,7 @@ struct YearYear: Codable {
 }
 
 // MARK: - Result
-struct Games: Codable {
+struct Games: Codable, Identifiable {
     let id: Int
     let slug, name, released: String
     let tba: Bool
@@ -69,13 +52,13 @@ struct Games: Codable {
     let userGame: JSONNull?
     let reviewsCount: Int
     let saturatedColor, dominantColor: Color
-    let platforms: [PlatformElement]
-    let parentPlatforms: [ParentPlatform]
-    let genres: [Genre]
-    let stores: [Store]
-    let clip: Clip
-    let tags: [Genre]
-    let shortScreenshots: [ShortScreenshot]
+    let platforms: [PlatformElement]?
+    let parentPlatforms: [ParentPlatform]?
+    let genres: [Genre]?
+    let stores: [Store]?
+    let clip: Clip?
+    let tags: [Genre]?
+    let shortScreenshots: [ShortScreenshot]?
 
     enum CodingKeys: String, CodingKey {
         case id, slug, name, released, tba
@@ -108,8 +91,8 @@ struct AddedByStatus: Codable {
 
 // MARK: - Clip
 struct Clip: Codable {
-    let clip: String
-    let clips: Clips
+    let clip: String?
+    let clips: Clips?
     let video: String
     let preview: String
 }
@@ -134,7 +117,7 @@ struct Genre: Codable {
     let id: Int
     let name, slug: String
     let gamesCount: Int
-    let imageBackground: String
+    let imageBackground: String?
     let domain: Domain?
     let language: Language?
 

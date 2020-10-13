@@ -23,6 +23,8 @@
 		89C6FCC425344CBF00BFD1A3 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCC325344CBF00BFD1A3 /* Helper.swift */; };
 		89C6FCC625344E4E00BFD1A3 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCC525344E4E00BFD1A3 /* Games.swift */; };
 		89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCC925344FDE00BFD1A3 /* GameService.swift */; };
+		89C6FCCC2535581300BFD1A3 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */; };
+		89C6FCD125355AB200BFD1A3 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD025355AB200BFD1A3 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		89C6FCC325344CBF00BFD1A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		89C6FCC525344E4E00BFD1A3 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		89C6FCC925344FDE00BFD1A3 /* GameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameService.swift; sourceTree = "<group>"; };
+		89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		89C6FCD025355AB200BFD1A3 /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,11 +106,10 @@
 		8961D29425337860008B90A4 /* presentation */ = {
 			isa = PBXGroup;
 			children = (
+				89C6FCCD25355A7700BFD1A3 /* components */,
 				8961D29F2533F761008B90A4 /* profil */,
 				8961D29E2533F755008B90A4 /* fav */,
 				8961D29D2533F743008B90A4 /* home */,
-				8961D2A12533F789008B90A4 /* GameView.swift */,
-				89C6FCBF2534462B00BFD1A3 /* ActivityIndicatorView.swift */,
 			);
 			path = presentation;
 			sourceTree = "<group>";
@@ -165,8 +168,19 @@
 			isa = PBXGroup;
 			children = (
 				89C6FCC925344FDE00BFD1A3 /* GameService.swift */,
+				89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */,
 			);
 			path = service;
+			sourceTree = "<group>";
+		};
+		89C6FCCD25355A7700BFD1A3 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				8961D2A12533F789008B90A4 /* GameView.swift */,
+				89C6FCBF2534462B00BFD1A3 /* ActivityIndicatorView.swift */,
+				89C6FCD025355AB200BFD1A3 /* ImageView.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,6 +254,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89C6FCD125355AB200BFD1A3 /* ImageView.swift in Sources */,
+				89C6FCCC2535581300BFD1A3 /* ImageLoaderService.swift in Sources */,
 				89C6FCC425344CBF00BFD1A3 /* Helper.swift in Sources */,
 				8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */,
 				89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */,
