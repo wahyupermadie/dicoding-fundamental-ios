@@ -9,18 +9,29 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var viewModel: HomeViewModelImpl = HomeViewModelImpl()
     
     var body: some View {
         NavigationView {
             ZStack {
-                Text("wkwkkw")
+                if self.viewModel.isLoading {
+                    ActivityIndicatorView()
+                } else {
+                    if self.viewModel.games.count > 0 {
+                        List(self.viewModel.games) { (game: Games) in
+                            GameView(game: game)
+                        }
+                    }
+                }
             }.navigationBarTitle(
                 Text("Video Games")
             ).navigationBarItems(trailing:
                 HStack {
                     Image(systemName: "magnifyingglass")
                 }
-            )
+            ).onAppear {
+                self.viewModel.getGames(query: "")
+            }
         }
     }
 }

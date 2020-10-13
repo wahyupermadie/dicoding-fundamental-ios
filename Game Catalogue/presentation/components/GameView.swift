@@ -9,17 +9,23 @@
 import SwiftUI
 
 struct GameView: View {
+    let game: Games
+    init(game: Games) {
+        self.game = game
+    }
     var body: some View {
         HStack {
-            Image("gta")
-                .resizable()
-                .scaledToFill()
+            ImageView(url: game.backgroundImage)
                 .frame(width: 85, height: 85)
                 .clipped()
                 .cornerRadius(10)
             VStack(alignment: .leading) {
-                Text("Grand Theft Auto")
+                Text(game.name)
+                    .fontWeight(.bold)
+                    .font(.system(size: 24))
+                
                 Text("Action")
+                    .foregroundColor(.gray)
             }
         }.frame(minWidth: 0,
             maxWidth: .infinity,
@@ -31,6 +37,6 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        GameView(game: getGameData()!)
     }
 }

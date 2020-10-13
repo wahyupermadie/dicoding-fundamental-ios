@@ -12,20 +12,20 @@ typealias gameResultCompletion = (Result<[Games], NetworkError>) -> Void
 typealias gameDetailResultCompletion = (Result<Games, NetworkError>) -> Void
 
 protocol GameService {
-    func getGames(query: String?, completion: gameResultCompletion)
-    func getDetailGame(gameId: Int, completion: gameDetailResultCompletion)
+    func getGames(query: String?, completion: @escaping gameResultCompletion)
+    func getDetailGame(gameId: Int, completion: @escaping gameDetailResultCompletion)
 }
 
 class GameServiceImpl: GameService {
     
     private let urlSession = URLSession.shared
     
-    func getGames(query: String?, completion: (Result<[Games], NetworkError>) -> Void) {
-        guard let url = makeUrl(endpoint: "game", param: "search", queryParam: query ?? "") else {
+    func getGames(query: String?, completion: @escaping gameResultCompletion) {
+        guard let url = makeUrl(endpoint: "games", param: "search", queryParam: query ?? "") else {
             return
         }
         
-        self.urlSession.dataTask(with: url) {(data, response, error) in
+        self.urlSession.dataTask(with: url){ (data, response, error) in
             if error != nil {
                 completion(.failure(.networkError))
                 return
@@ -33,6 +33,7 @@ class GameServiceImpl: GameService {
             
             do {
                 let result = try JSONDecoder().decode(GameResponse.self, from: data!)
+                
                 if let games = result.results {
                     completion(.success(games))
                 }else{
@@ -45,16 +46,29 @@ class GameServiceImpl: GameService {
         }.resume()
     }
     
-    func getDetailGame(gameId: Int, completion: (Result<Games, NetworkError>) -> Void) {
-        guard let url = URL(string: "\(BASE_URL)/games/\(gameId)") else {
+    func getDetailGame(gameId: Int, completion: @escaping gameDetailResultCompletion){
+        guard let url = URL(string: "\(BASE_URL)games/\(gameId)") else {
             return
         }
         
-        
+        self.urlSession.dataTask(with: url){ (data,response, error) in
+            if error != nil {
+                completion(.failure(.networkError))
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(Games.self, from: data!)
+                completion(.success(result))
+            }catch let error {
+                print(error)
+                completion(.failure(.networkError))
+            }
+        }
     }
     
     private func makeUrl(endpoint: String, param: String?, queryParam: String = "") -> URL? {
-        guard let url = URL(string: "\(BASE_URL)/\(endpoint)") else {
+        guard let url = URL(string: "\(BASE_URL)\(endpoint)") else {
             return nil
         }
         
