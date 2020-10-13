@@ -8,19 +8,19 @@
 
 import Foundation
 
-typealias gameResultCompletion = (Result<[Games], NetworkError>) -> Void
-typealias gameDetailResultCompletion = (Result<Games, NetworkError>) -> Void
+typealias GameResultCompletion = (Result<[Games], NetworkError>) -> Void
+typealias GameDetailResultCompletion = (Result<Games, NetworkError>) -> Void
 
 protocol GameService {
-    func getGames(query: String?, completion: @escaping gameResultCompletion)
-    func getDetailGame(gameId: Int, completion: @escaping gameDetailResultCompletion)
+    func getGames(query: String?, completion: @escaping GameResultCompletion)
+    func getDetailGame(gameId: Int, completion: @escaping GameDetailResultCompletion)
 }
 
 class GameServiceImpl: GameService {
     
     private let urlSession = URLSession.shared
     
-    func getGames(query: String?, completion: @escaping gameResultCompletion) {
+    func getGames(query: String?, completion: @escaping GameResultCompletion) {
         guard let url = makeUrl(endpoint: "games", param: "search", queryParam: query ?? "") else {
             return
         }
@@ -45,46 +45,38 @@ class GameServiceImpl: GameService {
             }
         }.resume()
     }
-    
-    func getDetailGame(gameId: Int, completion: @escaping gameDetailResultCompletion){
-        guard let url = URL(string: "\(BASE_URL)games/\(gameId)") else {
+    func getDetailGame(gameId: Int, completion: @escaping GameDetailResultCompletion){
+        guard let url = URL(string: "\(BaseUrl)games/\(gameId)") else {
             return
         }
-        
-        self.urlSession.dataTask(with: url){ (data,response, error) in
+        self.urlSession.dataTask(with: url){ (data,_,error) in
             if error != nil {
                 completion(.failure(.networkError))
                 return
             }
-            
             do {
                 let result = try JSONDecoder().decode(Games.self, from: data!)
                 completion(.success(result))
-            }catch let error {
+            } catch let error {
                 print(error)
                 completion(.failure(.networkError))
             }
         }
     }
-    
     private func makeUrl(endpoint: String, param: String?, queryParam: String = "") -> URL? {
-        guard let url = URL(string: "\(BASE_URL)\(endpoint)") else {
+        guard let url = URL(string: "\(BaseUrl)\(endpoint)") else {
             return nil
         }
-        
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return nil
         }
-        
         if param != nil {
             let queryItems = [URLQueryItem(name: param!, value: queryParam)]
             urlComponents.queryItems = queryItems
         }
-        
         guard let finalURL = urlComponents.url else {
             return nil
         }
-        
         return finalURL
     }
 }

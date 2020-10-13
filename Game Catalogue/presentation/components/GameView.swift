@@ -15,7 +15,7 @@ struct GameView: View {
     }
     var body: some View {
         HStack {
-            ImageView(url: game.backgroundImage ?? ERROR_IMAGE)
+            ImageView(url: game.backgroundImage ?? ErrorImage)
                 .frame(width: 80, height: 80)
                 .clipped()
                 .cornerRadius(10)
@@ -23,11 +23,9 @@ struct GameView: View {
                 Text(game.name ?? "-")
                     .fontWeight(.bold)
                     .font(.system(size: 22))
-                
                 Text(game.getGenres())
                     .foregroundColor(.gray)
                     .font(.system(size: 16))
-                
                 HStack {
                     ImageLabel(
                         image: Image(systemName: "timer"), desc: "\(game.playtime ?? 0) min"
