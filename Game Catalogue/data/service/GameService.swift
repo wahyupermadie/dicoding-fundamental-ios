@@ -24,7 +24,7 @@ class GameServiceImpl: GameService {
         guard let url = makeUrl(endpoint: "games", param: "search", queryParam: query ?? "") else {
             return
         }
-        
+       
         self.urlSession.dataTask(with: url){ (data, response, error) in
             if error != nil {
                 completion(.failure(.networkError))
@@ -34,8 +34,8 @@ class GameServiceImpl: GameService {
             do {
                 let result = try JSONDecoder().decode(GameResponse.self, from: data!)
                 
-                if let games = result.results {
-                    completion(.success(games))
+                if result.results.count > 0 {
+                    completion(.success(result.results))
                 }else{
                     completion(.failure(.notFound))
                 }

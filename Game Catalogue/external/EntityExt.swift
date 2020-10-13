@@ -12,6 +12,6 @@ import SwiftUI
 extension Games {
     func getGenres() -> String {
         guard let genres = self.genres else { return ""}
-        return genres.map{ $0.name }.joined(separator: ", ")
+        return genres.map{ $0.name ?? "" }.joined(separator: ", ")
     }
 }

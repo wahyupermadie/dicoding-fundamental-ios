@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol HomeViewModel {
     func getGames(query: String?)
@@ -14,13 +15,21 @@ protocol HomeViewModel {
 
 class HomeViewModelImpl : HomeViewModel, ObservableObject {
     
+    private var cancellable: AnyCancellable? = nil
     @Published var isLoading: Bool = false
     @Published var games: [Games] = []
-    
+    @Published var searchText = ""
+    @Published var errorState: NetworkError? = nil
     private let service: GameService
     
     init(service: GameService = GameServiceImpl()) {
         self.service = service
+        cancellable = AnyCancellable(
+            $searchText.removeDuplicates()
+                .debounce(for: 0.5, scheduler: DispatchQueue.main)
+              .sink { searchText in
+                self.getGames(query: searchText)
+        })
     }
     
     func getGames(query: String?) {
@@ -33,7 +42,12 @@ class HomeViewModelImpl : HomeViewModel, ObservableObject {
             case .success(let response):
                 data = response
             case .failure(let error):
-                print(error.localizedDescription)
+                if error == .notFound {
+                    self.errorState = .notFound
+                    data = []
+                } else {
+                    self.errorState = .networkError
+                }
             }
             
             DispatchQueue.main.async {

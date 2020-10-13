@@ -10,9 +10,9 @@ import SwiftUI
 
 struct SearchView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @State private var searchText = ""
+    @ObservedObject var viewModel: HomeViewModelImpl = HomeViewModelImpl()
     var body: some View {
-        VStack(alignment: .leading){
+        VStack {
             HStack {
                 Spacer()
                 Text("Search")
@@ -28,9 +28,37 @@ struct SearchView: View {
                 .frame(alignment: .trailing)
                 .padding(.trailing, 12)
             }.padding([.top, .bottom], 8)
-            SearchBar(text: self.$searchText)
+            SearchBar(text: self.$viewModel.searchText)
             Spacer()
-            
+            if self.viewModel.isLoading {
+                ActivityIndicatorView()
+            } else {
+                if self.viewModel.games.count > 0 {
+                    List(self.viewModel.games) { (game: Games) in
+                        GameView(game: game)
+                    }
+                    
+                } else if self.viewModel.errorState == .notFound{
+                    EmptyStateView()
+                }
+            }
+            Spacer()
+        }
+    }
+}
+
+struct EmptyStateView: View {
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Image("empty_icon")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .scaledToFit()
+                Spacer()
+            }
+            Text("Tidak Ada Data")
         }
     }
 }
@@ -40,12 +68,10 @@ struct SearchBar: View {
     @State private var isEditing = false
     var body: some View {
         HStack {
+            Image(systemName: "magnifyingglass")
+                .padding(.leading, 8)
             TextField("Search....", text: $text)
                 .padding(7)
-                .padding(.horizontal, 25)
-                .foregroundColor(.red)
-                .cornerRadius(8)
-                .padding(.horizontal, 10)
                 .onTapGesture {
                     self.isEditing = true
                 }
@@ -62,7 +88,14 @@ struct SearchBar: View {
                    .transition(.move(edge: .trailing))
                    .animation(.default)
                }
-        }.background(Color.red)
+        }
+        .foregroundColor(.black)
+        .background(
+            Rectangle()
+                .foregroundColor(.gray).opacity(0.2)
+        )
+        .cornerRadius(8)
+            .padding([.leading, .trailing], 12)
     }
 }
 
