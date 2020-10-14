@@ -45,6 +45,7 @@
 		8961D29B253378E7008B90A4 /* ProfilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilView.swift; sourceTree = "<group>"; };
 		8961D2A12533F789008B90A4 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		897EA8F6253629AB00B39DBB /* CommonExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonExt.swift; sourceTree = "<group>"; };
+		897EA8F92536396800B39DBB /* game_dummy.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = game_dummy.json; sourceTree = "<group>"; };
 		89C6FCBF2534462B00BFD1A3 /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		89C6FCC1253447FB00BFD1A3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		89C6FCC325344CBF00BFD1A3 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 				89C6FCC325344CBF00BFD1A3 /* Helper.swift */,
 				89C6FCD52535736200BFD1A3 /* EntityExt.swift */,
 				897EA8F6253629AB00B39DBB /* CommonExt.swift */,
+				897EA8F92536396800B39DBB /* game_dummy.json */,
 			);
 			path = external;
 			sourceTree = "<group>";

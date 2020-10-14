@@ -15,7 +15,7 @@ struct GameView: View {
     }
     var body: some View {
         HStack {
-            ImageView(url: game.backgroundImage ?? ErrorImage)
+            ImageView(url: game.backgroundImage ?? errorImage)
                 .frame(width: 80, height: 80)
                 .clipped()
                 .cornerRadius(10)
@@ -31,10 +31,9 @@ struct GameView: View {
                         image: Image(systemName: "timer"), desc: "\(game.playtime ?? 0) min"
                     )
                     ImageLabel(
-                        image: Image(systemName: "calendar"), desc: game.released?.convertToString(format: "dd MMMM yyyy") ?? "-"
+                        image: Image(systemName: "calendar"), desc: game.released?.convertToString(format: "dd MMM yyyy") ?? "-"
                     )
                 }
-                
             }
         }.frame(minWidth: 0,
             maxWidth: .infinity,

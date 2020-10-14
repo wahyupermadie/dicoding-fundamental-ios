@@ -46,7 +46,7 @@ class GameServiceImpl: GameService {
         }.resume()
     }
     func getDetailGame(gameId: Int, completion: @escaping GameDetailResultCompletion){
-        guard let url = URL(string: "\(BaseUrl)games/\(gameId)") else {
+        guard let url = URL(string: "\(baseUrl)games/\(gameId)") else {
             return
         }
         self.urlSession.dataTask(with: url){ (data,_,error) in
@@ -64,7 +64,7 @@ class GameServiceImpl: GameService {
         }
     }
     private func makeUrl(endpoint: String, param: String?, queryParam: String = "") -> URL? {
-        guard let url = URL(string: "\(BaseUrl)\(endpoint)") else {
+        guard let url = URL(string: "\(baseUrl)\(endpoint)") else {
             return nil
         }
         guard var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
