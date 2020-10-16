@@ -22,9 +22,12 @@ struct ImageView: View {
         VStack {
             GeometryReader { geo in
                 if self.isLoading {
-                    Rectangle()
-                        .foregroundColor(.gray)
-                        .frame(width: geo.size.width, height: geo.size.height)
+                    ZStack {
+                        Rectangle()
+                            .foregroundColor(.gray).opacity(0.5)
+                            .frame(width: geo.size.width, height: geo.size.height)
+                        ActivityIndicatorView()
+                    }
                 }else{
                     Image(uiImage: self.image ?? UIImage())
                         .resizable()

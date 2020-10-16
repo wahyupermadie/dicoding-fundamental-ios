@@ -70,7 +70,10 @@ struct DetailGameView: View {
             }
         }.onAppear(perform: {
             viewModel.fetchDetailGame(id: self.gameId)
-        })
+        }).navigationBarTitle(
+            Text("Detail Game"),
+            displayMode: .inline
+        )
     }
 }
 
