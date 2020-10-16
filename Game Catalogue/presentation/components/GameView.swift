@@ -14,32 +14,44 @@ struct GameView: View {
         self.game = game
     }
     var body: some View {
-        HStack {
-            ImageView(url: game.backgroundImage ?? errorImage)
-                .frame(width: 80, height: 80)
-                .clipped()
-                .cornerRadius(10)
-            VStack(alignment: .leading) {
-                Text(game.name ?? "-")
-                    .fontWeight(.bold)
-                    .font(.system(size: 22))
-                Text(game.getGenres())
-                    .foregroundColor(.gray)
-                    .font(.system(size: 16))
-                HStack {
-                    ImageLabel(
-                        image: Image(systemName: "timer"), desc: "\(game.playtime ?? 0) min"
-                    )
-                    ImageLabel(
-                        image: Image(systemName: "calendar"), desc: game.released?.convertToString(format: "dd MMM yyyy") ?? "-"
-                    )
+        ZStack{
+            HStack {
+                ImageView(url: game.backgroundImage ?? errorImage)
+                    .frame(width: 80, height: 80)
+                    .clipped()
+                    .cornerRadius(10)
+                VStack(alignment: .leading) {
+                    Text(game.name ?? "-")
+                        .fontWeight(.bold)
+                        .font(.system(size: 22))
+                    Text(game.getGenres())
+                        .foregroundColor(.gray)
+                        .font(.system(size: 16))
+                    HStack {
+                        ImageLabel(
+                            image: Image(systemName: "timer"), desc: "\(game.playtime ?? 0) min"
+                        )
+                        ImageLabel(
+                            image: Image(systemName: "calendar"), desc: game.released?.convertToString(format: "dd MMM yyyy") ?? "-"
+                        )
+                    }
                 }
-            }
-        }.frame(minWidth: 0,
-            maxWidth: .infinity,
-            minHeight: 0,
-            alignment: .topLeading
-        ).padding(EdgeInsets.init(top: 8, leading: 0, bottom: 8, trailing: 16))
+            }.frame(minWidth: 0,
+                maxWidth: .infinity,
+                minHeight: 0,
+                alignment: .topLeading
+            ).padding(EdgeInsets.init(top: 8, leading: 0, bottom: 8, trailing: 16))
+            NavigationLink(
+                destination: DetailGameView(gameId: game.id ?? 0),
+                label: {
+                    EmptyView()
+                }
+            ).frame(minWidth: 0,
+                    maxWidth: .infinity,
+                    minHeight: 0,
+                    alignment: .topLeading
+            )
+        }
     }
 }
 

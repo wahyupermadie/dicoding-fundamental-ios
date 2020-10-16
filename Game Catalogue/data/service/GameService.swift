@@ -61,7 +61,7 @@ class GameServiceImpl: GameService {
                 print(error)
                 completion(.failure(.networkError))
             }
-        }
+        }.resume()
     }
     private func makeUrl(endpoint: String, param: String?, queryParam: String = "") -> URL? {
         guard let url = URL(string: "\(baseUrl)\(endpoint)") else {

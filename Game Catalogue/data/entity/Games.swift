@@ -44,21 +44,26 @@ struct Games: Codable, Identifiable {
     let released: Date?
     let backgroundImage: String?
     let rating: Double?
+    var description: String?
     let playtime: Int?
     let genres: [Genre]?
+    let moviesCount: Int?
     let clip: Clip?
 
     enum CodingKeys: String, CodingKey {
         case id, name, released
+        case moviesCount = "movies_count"
+        case description = "description_raw"
         case backgroundImage = "background_image"
         case rating, playtime, genres, clip
     }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
+        moviesCount = try? container.decode(Int.self, forKey: .moviesCount)
         id = try? container.decode(Int.self, forKey: .id)
         name = try? container.decode(String.self, forKey: .name)
+        description = try? container.decode(String.self, forKey: .description)
         released = try? container.decode(String.self, forKey: .released).convertToDate()
         backgroundImage = try? container.decode(String.self, forKey: .backgroundImage)
         rating = try? container.decode(Double.self, forKey: .rating)
@@ -86,10 +91,6 @@ struct Clips: Codable {
         case the640 = "640"
         case full
     }
-}
-
-enum Color: String, Codable {
-    case the0F0F0F = "0f0f0f"
 }
 
 // MARK: - Genre
