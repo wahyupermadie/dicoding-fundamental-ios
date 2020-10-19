@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		89269D37253D90A400EFEBBC /* ProfilDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89269D36253D90A400EFEBBC /* ProfilDataModel.swift */; };
 		8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27A2533684F008B90A4 /* AppDelegate.swift */; };
 		8961D27D2533684F008B90A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27C2533684F008B90A4 /* SceneDelegate.swift */; };
 		8961D2802533684F008B90A4 /* Game_Catalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27E2533684F008B90A4 /* Game_Catalogue.xcdatamodeld */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		89269D36253D90A400EFEBBC /* ProfilDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilDataModel.swift; sourceTree = "<group>"; };
 		8961D2772533684F008B90A4 /* Game Catalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game Catalogue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8961D27A2533684F008B90A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8961D27C2533684F008B90A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		89269D35253D908600EFEBBC /* local */ = {
+			isa = PBXGroup;
+			children = (
+				89269D36253D90A400EFEBBC /* ProfilDataModel.swift */,
+			);
+			path = local;
+			sourceTree = "<group>";
+		};
 		8961D26E2533684F008B90A4 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		8961D2952533786C008B90A4 /* data */ = {
 			isa = PBXGroup;
 			children = (
+				89269D35253D908600EFEBBC /* local */,
 				89C6FCC825344F3C00BFD1A3 /* service */,
 				89C6FCC725344F3300BFD1A3 /* entity */,
 			);
@@ -330,6 +341,7 @@
 				8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */,
 				89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */,
 				8961D29C253378E7008B90A4 /* ProfilView.swift in Sources */,
+				89269D37253D90A400EFEBBC /* ProfilDataModel.swift in Sources */,
 				89C6FCC625344E4E00BFD1A3 /* Games.swift in Sources */,
 				897EA8F7253629AB00B39DBB /* CommonExt.swift in Sources */,
 				8961D2802533684F008B90A4 /* Game_Catalogue.xcdatamodeld in Sources */,

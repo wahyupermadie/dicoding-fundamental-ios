@@ -15,11 +15,11 @@ protocol HomeViewModel {
 
 class HomeViewModelImpl : HomeViewModel, ObservableObject {
     
-    private var cancellable: AnyCancellable? = nil
+    private var cancellable: AnyCancellable?
     @Published var isLoading: Bool = false
     @Published var games: [Games] = []
     @Published var searchText = ""
-    @Published var errorState: NetworkError? = nil
+    @Published var errorState: NetworkError?
     private let service: GameService
     
     init(service: GameService = GameServiceImpl()) {

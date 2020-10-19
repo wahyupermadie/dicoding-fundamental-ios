@@ -34,7 +34,7 @@ struct DetailGameView: View {
                             Spacer()
                             VStack {
                                 Text("Rating")
-                                Text("\(viewModel.game?.rating ?? 0.0)")
+                                Text("\(String(format: "%.1f", viewModel.game?.rating ?? 0.0))")
                             }.frame(minWidth: 0, maxWidth: .infinity)
                             Divider().frame(height: 25).background(Color.black)
                             VStack {

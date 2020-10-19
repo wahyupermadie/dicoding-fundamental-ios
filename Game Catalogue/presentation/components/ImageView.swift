@@ -36,7 +36,7 @@ struct ImageView: View {
                 }
             }.onReceive(self.imageLoader.didChange) { (data) in
                 self.isLoading = false
-                self.image = UIImage(data: data) ?? UIImage()
+                self.image = data
             }
         }
     }

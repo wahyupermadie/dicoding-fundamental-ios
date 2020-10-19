@@ -14,8 +14,8 @@ protocol DetailGameViewModel {
 
 class DetailGameViewModelImpl: DetailGameViewModel, ObservableObject {
     @Published var isLoading: Bool = false
-    @Published var game: Games? = nil
-    @Published var errorState: NetworkError? = nil
+    @Published var game: Games?
+    @Published var errorState: NetworkError?
     private let service: GameService
     init(service: GameService = GameServiceImpl()) {
         self.service = service

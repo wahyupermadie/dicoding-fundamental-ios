@@ -12,37 +12,43 @@ struct SearchView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var viewModel: HomeViewModelImpl = HomeViewModelImpl()
     var body: some View {
-        VStack {
-            HStack {
-                Spacer()
-                Text("Search")
-                    .fontWeight(.bold)
-                    .frame(alignment: .center)
-                    .padding(.trailing, -50)
-                Spacer()
-                Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }){
-                    Text("Close")
-                }
-                .frame(alignment: .trailing)
-                .padding(.trailing, 12)
-            }.padding([.top, .bottom], 8)
-            SearchBar(text: self.$viewModel.searchText)
-            Spacer()
-            if self.viewModel.isLoading {
-                ActivityIndicatorView()
-            } else {
-                if self.viewModel.games.count > 0 {
-                    List(self.viewModel.games) { (game: Games) in
-                        GameView(game: game)
+        NavigationView {
+            VStack {
+                HStack {
+                    Spacer()
+                    Text("Search")
+                        .fontWeight(.bold)
+                        .frame(alignment: .center)
+                        .padding(.trailing, -50)
+                    Spacer()
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }){
+                        Text("Close")
                     }
-                    
-                } else if self.viewModel.errorState == .notFound{
-                    EmptyStateView()
+                    .frame(alignment: .trailing)
+                    .padding(.trailing, 12)
+                }.padding([.top, .bottom], 8)
+                SearchBar(text: self.$viewModel.searchText)
+                Spacer()
+                if self.viewModel.isLoading {
+                    ActivityIndicatorView()
+                } else {
+                    if self.viewModel.games.count > 0 {
+                        List(self.viewModel.games) { (game: Games) in
+                            GameView(game: game)
+                        }
+                        
+                    } else if self.viewModel.errorState == .notFound {
+                        EmptyStateView()
+                    }
                 }
+                Spacer()
             }
-            Spacer()
+            .onAppear(perform: {
+                viewModel.getGames(query: "")
+            })
+            .navigationBarHidden(true)
         }
     }
 }
