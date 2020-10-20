@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ProfilView: View {
     @State private var showModal = false
+    @ObservedObject var viewModel = ProfilViewModel()
     var body: some View {
         NavigationView {
             VStack {
@@ -19,10 +20,10 @@ struct ProfilView: View {
                     .scaledToFit()
                     .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
                     .frame(width: 400, height: 400)
-                Text(ProfilDataModel.userName)
+                Text(self.viewModel.userName)
                     .padding(.top, -50)
                     .font(.system(size: 22))
-                Text(ProfilDataModel.userGithub)
+                Text(self.viewModel.userGithub)
                     .padding(.top, -30)
                     .foregroundColor(.gray)
                 Button(action: {
@@ -49,7 +50,7 @@ struct ProfilView: View {
             .sheet(isPresented: $showModal, onDismiss: {
                 print(self.showModal)
             }) {
-                ModalView()
+                ModalView(viewModel: self.viewModel)
             }
         }
     }
@@ -57,8 +58,7 @@ struct ProfilView: View {
 
 struct ModalView: View {
     @Environment(\.presentationMode) private var presentationMode
-    @State private var name: String = ProfilDataModel.userName
-    @State private var github: String = ProfilDataModel.userGithub
+    @ObservedObject var viewModel = ProfilViewModel()
     @State private var isNamedEditing = false
     @State private var isGithubEditing = false
     
@@ -68,10 +68,15 @@ struct ModalView: View {
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.bottom, 36)
-            CustomTextField(messageHint: "Enter your name", text: self.$name)
+            CustomTextField(messageHint: "Enter your name", text: self.$viewModel.userName)
             
-            CustomTextField(messageHint: "Enter your github", text: self.$github)
+            CustomTextField(messageHint: "Enter your github", text: self.$viewModel.userGithub)
             Button(action: {
+                if self.viewModel.userName.count != 0 && self.viewModel.userGithub.count != 0 {
+                    ProfilDataModel.userName = self.viewModel.userName
+                    ProfilDataModel.userGithub = self.viewModel.userGithub
+                    ProfilDataModel.synchronize()
+                }
                 self.presentationMode.wrappedValue.dismiss()
             }){
                 Text("Submit")
@@ -134,6 +139,6 @@ struct CustomTextField: View {
 
 struct ProfilView_Previews: PreviewProvider {
     static var previews: some View {
-        ModalView()
+        ProfilView()
     }
 }

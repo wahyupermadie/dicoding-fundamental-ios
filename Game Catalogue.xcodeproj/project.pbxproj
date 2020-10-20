@@ -33,6 +33,7 @@
 		89C6FCD425356CB500BFD1A3 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD325356CB500BFD1A3 /* SearchView.swift */; };
 		89C6FCD62535736200BFD1A3 /* EntityExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD52535736200BFD1A3 /* EntityExt.swift */; };
 		89D05DB0253756EA0004C045 /* DetailGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D05DAF253756EA0004C045 /* DetailGameView.swift */; };
+		89E2BB70253EA9390018DC43 /* ProfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2BB6F253EA9390018DC43 /* ProfilViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,7 @@
 		89C6FCD325356CB500BFD1A3 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		89C6FCD52535736200BFD1A3 /* EntityExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityExt.swift; sourceTree = "<group>"; };
 		89D05DAF253756EA0004C045 /* DetailGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGameView.swift; sourceTree = "<group>"; };
+		89E2BB6F253EA9390018DC43 /* ProfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				8961D29B253378E7008B90A4 /* ProfilView.swift */,
+				89E2BB6F253EA9390018DC43 /* ProfilViewModel.swift */,
 			);
 			path = profil;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				8961D2822533684F008B90A4 /* ContentView.swift in Sources */,
 				8961D29825337891008B90A4 /* HomeView.swift in Sources */,
 				8961D29A253378C1008B90A4 /* FavoriteView.swift in Sources */,
+				89E2BB70253EA9390018DC43 /* ProfilViewModel.swift in Sources */,
 				8980DBB2253A06ED00A3720A /* VideoView.swift in Sources */,
 				89C6FCD425356CB500BFD1A3 /* SearchView.swift in Sources */,
 				89D05DB0253756EA0004C045 /* DetailGameView.swift in Sources */,
