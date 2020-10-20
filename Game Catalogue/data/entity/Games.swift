@@ -57,6 +57,19 @@ struct Games: Codable, Identifiable {
         case backgroundImage = "background_image"
         case rating, playtime, genres, clip
     }
+        
+    init(id: Int?, name: String?, description: String?, rating: Double?, backgroundImage: String?, released: Date?, playtime: Int?, genres: [Genre]?, clip: Clip?, movieCount: Int?) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.rating = rating
+        self.backgroundImage = backgroundImage
+        self.released = released
+        self.playtime = playtime
+        self.genres = genres
+        self.clip = clip
+        self.moviesCount = movieCount
+    }
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)

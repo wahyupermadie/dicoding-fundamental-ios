@@ -73,12 +73,32 @@ struct DetailGameView: View {
         }).navigationBarTitle(
             Text("Detail Game"),
             displayMode: .inline
-        )
+        ).navigationBarItems(trailing:
+            Button(action: {
+                if self.viewModel.isFavorite {
+                    self.viewModel.deleteFavorite(gameId: self.gameId)
+                } else {
+                    self.viewModel.addFavorite(games: self.viewModel.game)
+                }
+            }) {
+                if self.viewModel.isFavorite {
+                    Image(systemName: "heart.fill")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                } else {
+                    Image(systemName: "heart")
+                        .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                }
+            }
+        ).alert(isPresented: self.$viewModel.isShowAddFavDialog) {
+            Alert(title: Text(self.viewModel.isAddFavoriteTitle), message: Text(self.viewModel.isAddFavoriteMessage))
+        }
     }
 }
 
 struct DetailGameView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailGameView(gameId: 12)
+        Group {
+            DetailGameView(gameId: 12)
+        }
     }
 }

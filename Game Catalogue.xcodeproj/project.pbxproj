@@ -10,7 +10,6 @@
 		89269D37253D90A400EFEBBC /* ProfilDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89269D36253D90A400EFEBBC /* ProfilDataModel.swift */; };
 		8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27A2533684F008B90A4 /* AppDelegate.swift */; };
 		8961D27D2533684F008B90A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27C2533684F008B90A4 /* SceneDelegate.swift */; };
-		8961D2802533684F008B90A4 /* Game_Catalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8961D27E2533684F008B90A4 /* Game_Catalogue.xcdatamodeld */; };
 		8961D2822533684F008B90A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8961D2812533684F008B90A4 /* ContentView.swift */; };
 		8961D28425336850008B90A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8961D28325336850008B90A4 /* Assets.xcassets */; };
 		8961D28725336850008B90A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8961D28625336850008B90A4 /* Preview Assets.xcassets */; };
@@ -34,6 +33,9 @@
 		89C6FCD62535736200BFD1A3 /* EntityExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C6FCD52535736200BFD1A3 /* EntityExt.swift */; };
 		89D05DB0253756EA0004C045 /* DetailGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D05DAF253756EA0004C045 /* DetailGameView.swift */; };
 		89E2BB70253EA9390018DC43 /* ProfilViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2BB6F253EA9390018DC43 /* ProfilViewModel.swift */; };
+		89E2BB75253EB2E90018DC43 /* Game_Catalogue.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 89E2BB73253EB2E90018DC43 /* Game_Catalogue.xcdatamodeld */; };
+		89E2BB78253EC5230018DC43 /* GameProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2BB77253EC5230018DC43 /* GameProvider.swift */; };
+		89E2BB81253EEB120018DC43 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E2BB80253EEB120018DC43 /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,7 +43,6 @@
 		8961D2772533684F008B90A4 /* Game Catalogue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Game Catalogue.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8961D27A2533684F008B90A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8961D27C2533684F008B90A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8961D27F2533684F008B90A4 /* Game_Catalogue.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Game_Catalogue.xcdatamodel; sourceTree = "<group>"; };
 		8961D2812533684F008B90A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8961D28325336850008B90A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8961D28625336850008B90A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -67,6 +68,9 @@
 		89C6FCD52535736200BFD1A3 /* EntityExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityExt.swift; sourceTree = "<group>"; };
 		89D05DAF253756EA0004C045 /* DetailGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGameView.swift; sourceTree = "<group>"; };
 		89E2BB6F253EA9390018DC43 /* ProfilViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewModel.swift; sourceTree = "<group>"; };
+		89E2BB74253EB2E90018DC43 /* game_data_model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = game_data_model.xcdatamodel; sourceTree = "<group>"; };
+		89E2BB77253EC5230018DC43 /* GameProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameProvider.swift; sourceTree = "<group>"; };
+		89E2BB80253EEB120018DC43 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,16 +111,14 @@
 		8961D2792533684F008B90A4 /* Game Catalogue */ = {
 			isa = PBXGroup;
 			children = (
+				89E2BB7B253ED99A0018DC43 /* base */,
 				8961D29625337871008B90A4 /* external */,
 				8961D2952533786C008B90A4 /* data */,
 				8961D29425337860008B90A4 /* presentation */,
-				8961D27A2533684F008B90A4 /* AppDelegate.swift */,
-				8961D27C2533684F008B90A4 /* SceneDelegate.swift */,
 				8961D2812533684F008B90A4 /* ContentView.swift */,
 				8961D28325336850008B90A4 /* Assets.xcassets */,
 				8961D28825336850008B90A4 /* LaunchScreen.storyboard */,
 				8961D28B25336850008B90A4 /* Info.plist */,
-				8961D27E2533684F008B90A4 /* Game_Catalogue.xcdatamodeld */,
 				8961D28525336850008B90A4 /* Preview Content */,
 			);
 			path = "Game Catalogue";
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				8961D299253378C1008B90A4 /* FavoriteView.swift */,
+				89E2BB80253EEB120018DC43 /* FavoriteViewModel.swift */,
 			);
 			path = fav;
 			sourceTree = "<group>";
@@ -212,6 +215,8 @@
 			children = (
 				89C6FCC925344FDE00BFD1A3 /* GameService.swift */,
 				89C6FCCB2535581300BFD1A3 /* ImageLoaderService.swift */,
+				89E2BB73253EB2E90018DC43 /* Game_Catalogue.xcdatamodeld */,
+				89E2BB77253EC5230018DC43 /* GameProvider.swift */,
 			);
 			path = service;
 			sourceTree = "<group>";
@@ -242,6 +247,15 @@
 				8980DBB4253A084F00A3720A /* DetailGameViewModel.swift */,
 			);
 			path = detail;
+			sourceTree = "<group>";
+		};
+		89E2BB7B253ED99A0018DC43 /* base */ = {
+			isa = PBXGroup;
+			children = (
+				8961D27A2533684F008B90A4 /* AppDelegate.swift */,
+				8961D27C2533684F008B90A4 /* SceneDelegate.swift */,
+			);
+			path = base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +354,7 @@
 				89C6FCCC2535581300BFD1A3 /* ImageLoaderService.swift in Sources */,
 				89C6FCD62535736200BFD1A3 /* EntityExt.swift in Sources */,
 				8980DBAE253A06A400A3720A /* PlayerView.swift in Sources */,
+				89E2BB78253EC5230018DC43 /* GameProvider.swift in Sources */,
 				89C6FCC425344CBF00BFD1A3 /* Helper.swift in Sources */,
 				8961D27B2533684F008B90A4 /* AppDelegate.swift in Sources */,
 				89C6FCCA25344FDE00BFD1A3 /* GameService.swift in Sources */,
@@ -347,8 +362,9 @@
 				89269D37253D90A400EFEBBC /* ProfilDataModel.swift in Sources */,
 				89C6FCC625344E4E00BFD1A3 /* Games.swift in Sources */,
 				897EA8F7253629AB00B39DBB /* CommonExt.swift in Sources */,
-				8961D2802533684F008B90A4 /* Game_Catalogue.xcdatamodeld in Sources */,
+				89E2BB81253EEB120018DC43 /* FavoriteViewModel.swift in Sources */,
 				89C6FCC2253447FB00BFD1A3 /* HomeViewModel.swift in Sources */,
+				89E2BB75253EB2E90018DC43 /* Game_Catalogue.xcdatamodeld in Sources */,
 				8961D2822533684F008B90A4 /* ContentView.swift in Sources */,
 				8961D29825337891008B90A4 /* HomeView.swift in Sources */,
 				8961D29A253378C1008B90A4 /* FavoriteView.swift in Sources */,
@@ -555,12 +571,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		8961D27E2533684F008B90A4 /* Game_Catalogue.xcdatamodeld */ = {
+		89E2BB73253EB2E90018DC43 /* Game_Catalogue.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				8961D27F2533684F008B90A4 /* Game_Catalogue.xcdatamodel */,
+				89E2BB74253EB2E90018DC43 /* game_data_model.xcdatamodel */,
 			);
-			currentVersion = 8961D27F2533684F008B90A4 /* Game_Catalogue.xcdatamodel */;
+			currentVersion = 89E2BB74253EB2E90018DC43 /* game_data_model.xcdatamodel */;
 			path = Game_Catalogue.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

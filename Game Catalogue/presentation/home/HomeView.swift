@@ -36,7 +36,6 @@ struct HomeView: View {
                 }
             ).onAppear {
                 self.viewModel.getGames(query: "")
-                getGameData()
             }
         }
     }

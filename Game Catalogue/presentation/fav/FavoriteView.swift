@@ -9,8 +9,27 @@
 import SwiftUI
 
 struct FavoriteView: View {
+    @ObservedObject var viewModel: FavoriteViewModelImpl = FavoriteViewModelImpl()
+    @State var showingDetail = false
+    
     var body: some View {
-        Text("Coming Soon")
+        NavigationView {
+            ZStack {
+                if self.viewModel.isLoading {
+                    ActivityIndicatorView()
+                } else {
+                    if self.viewModel.games.count > 0 {
+                        List(self.viewModel.games) { (game: Games) in
+                            GameView(game: game)
+                        }
+                    }
+                }
+            }.navigationBarTitle(
+                Text("Games Favorite")
+            ).onAppear {
+                self.viewModel.getFavorite()
+            }
+        }
     }
 }
 
